@@ -1,0 +1,41 @@
+drop schema public cascade
+
+create schema public
+
+
+--------------------------to add foreign key
+
+ALTER TABLE "user" ADD CONSTRAINT user_profile__fkey FOREIGN KEY (profile_) REFERENCES "profile" (_id)
+	ON UPDATE CASCADE  ON DELETE NO ACTION
+
+------------
+
+ALTER TABLE "domain" ADD CONSTRAINT domain_created_by__fkey FOREIGN KEY (created_by_) REFERENCES "user"(_id) 
+    ON UPDATE CASCADE ON DELETE NO ACTION
+
+ALTER TABLE "domain" ADD CONSTRAINT domain_updated_by__fkey FOREIGN KEY (updated_by_) REFERENCES "user"(_id) 
+    ON UPDATE CASCADE ON DELETE NO ACTION
+
+-------------------------
+
+
+ALTER TABLE "division" ADD CONSTRAINT division_created_by__fkey FOREIGN KEY (created_by_) REFERENCES "user"(_id) 
+    ON UPDATE CASCADE ON DELETE NO ACTION
+
+ALTER TABLE "division" ADD CONSTRAINT division_updated_by__fkey FOREIGN KEY (updated_by_) REFERENCES "user"(_id) 
+    ON UPDATE CASCADE ON DELETE NO ACTION
+
+----------------------
+    
+
+
+
+------------------------- to set increament id 
+
+    SELECT setval('users__id_seq', max(users._id)) FROM users;
+    // id is '_id' and table is 'users'
+    // 'users__id_seq' has two uderscores--> see this in column properties
+
+
+
+    

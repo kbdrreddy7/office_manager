@@ -1,0 +1,94 @@
+
+
+Current:- PageAccess by profile, Domain
+
+
+
+
+########################  Api ####################
+
+
+  /global
+        get 1
+        get all
+        post 1
+        edit 1
+        delete 1
+        upsert          
+        bulk_upsert
+
+  /user
+        login               + login tracking
+        get 1
+        get all
+        post 1              + password hashing
+        edit 1              + password hashing
+        delete 1    
+
+
+
+########################  Services ####################
+
+  audit
+        createAudit  --> to create audit object that suitable to save in db
+        trackAudit   --> to track changes
+        trackOneField
+
+
+  global
+        createObject    --> creates obj that suitable to save in db
+        createObjects   --> []
+        saveObject
+        saveObjects     
+        updateOne  + with auditTracking
+        deleteOne  + with auditTracking
+        getAll
+        getOne
+        upsertObj  + with auditTracking   --> createOrUpdate
+        upsertObjs  ( no audit tracking )
+        normalUpsertObjs                  --> manual bulk upert for all data bases ( one by one)
+        specialUpsertObjs                 --> bulk upsert for only few data bases
+
+  user
+        login
+        saveObject + with password hashing
+        updateOne  + with password hashing
+
+
+  errorHandler      
+        handleError     --> logs to consoke + logs to file      
+
+  logger
+        log             --> logs mmsg to file + console
+        appendToFile    --> appends msg to file
+        writeToFile     
+
+
+  mailService 
+        sendMail        -->                                 ??????  not completed
+
+
+  util 
+        convertDbQueryObject    --> converts the object{options} to db query object
+        parseQueryString        --> parses the req query to object( db query)
+        convertToToken          --> converts string to json web token
+        decodeToken             --> decodes the json web token 
+        hashPassword            --> converts(hashes) the string password using bcrypt
+        comparePassswords       --> compares string password and hashPassword
+
+
+
+
+########################  Current Status ####################
+
+
+Page Access
+    Page
+    PageAccess
+    Roles
+    PageAccess_Roles
+
+Image Saving
+
+Fk link in table view
+

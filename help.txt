@@ -1,0 +1,39 @@
+
+Prerequisite:
+            install Postgresql
+            install pgadmin4 // optional
+            install Node 10+ 
+            install NPM 6+
+
+   Os:linux-Ubuntu 20.04
+Start:
+    Start/Stop Postgre-sql 
+     $ service postgresql start|stop|restart|reload|force-reload|status
+
+     // to access GUI --> go to all programs and click on pgadmin4
+
+
+   
+============================ Best Practices ( BP ) ======================    
+
+1. Don't use auto increament id    
+
+
+
+
+
+
+
+
+============================ Documentation Details ======================    
+
+User has Profile  ( 1:1)
+     
+     Profile has many Roles 
+     Role is assigned to many Profiles  (m:n)  --> need 3° table ProfileRoles
+
+     Role has many PageAccess
+     PageAccess is assigned to Roles    (m:n)  --> need 3° table RolePageAccess
+
+
+     PageAccess has Page (1:1)
